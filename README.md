@@ -1,6 +1,6 @@
-# macocr
+# MacOCR
 
-OCR command line utility for macOS 10.15+. Utilizes the [VNRecognizeTextRequest](https://developer.apple.com/documentation/vision/vnrecognizetextrequest) API.
+OCR command line utility for MacOS 10.15+ using the [VNRecognizeTextRequest](https://developer.apple.com/documentation/vision/vnrecognizetextrequest) API.
 
 ## Build and Run
 

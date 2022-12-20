@@ -42,7 +42,12 @@ func main(args: [String]) -> Int32 {
     let request = VNRecognizeTextRequest { (request, error) in
         let observations = request.results as? [VNRecognizedTextObservation] ?? []
         let obs : [String] = observations.map { $0.topCandidates(1).first?.string ?? ""}
-        try? obs.joined(separator: "\n").write(to: URL(fileURLWithPath: dst), atomically: true, encoding: String.Encoding.utf8)
+        if (dst != "-") {
+          try? obs.joined(separator: "\n").write(to: URL(fileURLWithPath: dst), atomically: true, encoding: String.Encoding.utf8)
+        }
+        if (dst == "-") {
+            print(obs.joined(separator: "\n"))
+        }
     }
     request.recognitionLevel = MODE
     request.usesLanguageCorrection = USE_LANG_CORRECTION
